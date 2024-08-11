@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>偽中国語翻訳場所</title>
+<body>
+    <header>
+        偽中国語翻訳場所(たまに本当の中国語や普通の日本語が出力されます)
+    </header>
+    <div class="container">
+        <form method="post" action="{% url 'translate_view' %}">
+            {% csrf_token %}
+            <textarea id="input_text" name="input_text" placeholder="入力文章其方求翻訳"></textarea>
+            <button type="submit">翻訳</button>
+        </form>
+    </div>
+    <div class="container">
+        {% if translated_text %}
+            <h3>翻訳結果:</h3>
+            <p>{{ translated_text }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(231, 231, 231);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        header {
+            background-color: #004D66;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 24px;
+        }
+        .container {
+            width: 70%;
+            margin: 20px 0;
+            display: flex; /* Flexboxを使用 */
+            flex-direction: column; /* 縦方向に配置 */
+            align-items: center; /* 中央揃え */
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 20px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 40px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px; /* ボタンとテキストエリアの間隔 */
+        }
+        button:hover {
+            background-color: #0056B3;
+        }
+    </style>
+</body>
+</head>
+</html>
