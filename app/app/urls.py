@@ -22,5 +22,5 @@ from ese_china import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'), 
-    path('translated/', views.translate_view, name='translate_view'),
+    path('', views.index, name='translate_view'),
 ]
